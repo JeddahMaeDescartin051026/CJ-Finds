@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#eaf3ed" />
+  <title>CJ Finds — Modern Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <button class="icon-button menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="brand" href="#" aria-label="CJ Finds home">
+      <span class="brand-leaf" aria-hidden="true">✦</span>
+      <span>CJ Finds</span>
+      <small>Curated for everyday living</small>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#women">Women</a>
+      <a href="#men">Men</a>
+      <a href="#accessories">Accessories</a>
+      <a href="#featured">New arrivals</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button search-toggle" aria-label="Search products" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.2"></circle><path d="m16.2 16.2 5 5"></path></svg>
+      </button>
+      <button class="icon-button cart-toggle" aria-label="Open shopping bag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4L5 8Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
+        <span class="cart-count" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" hidden>
+    <a href="#women">Women</a><a href="#men">Men</a><a href="#accessories">Accessories</a><a href="#featured">New arrivals</a>
+  </div>
+  <form class="search-panel" role="search" hidden>
+    <label for="search-input">Find your next favorite</label>
+    <div class="search-row"><input id="search-input" type="search" placeholder="Search essentials…" /><button type="submit">Search</button></div>
+    <p class="search-message" aria-live="polite"></p>
+  </form>
+
+  <main>
+    <!-- Keep this original visual order: hero, three category banners, palette footer. -->
+    <section class="hero" aria-label="New season collection">
+      <div class="hero-copy">
+        <p class="eyebrow">New Season</p>
+        <h1>Modern<br>Essentials</h1>
+        <p class="hero-description">Timeless pieces for a more<br class="desktop-break"> confident you.</p>
+        <a class="primary-button" href="#featured">Shop the Collection <span aria-hidden="true">→</span></a>
+        <div class="hero-pagination" aria-label="Featured collection">
+          <button class="active" data-slide="0" aria-label="Collection one">01</button><i></i>
+          <button data-slide="1" aria-label="Collection two">02</button><i></i>
+          <button data-slide="2" aria-label="Collection three">03</button>
+        </div>
+      </div>
+      <div class="hero-image image-fashion" role="img" aria-label="Model wearing a cream blazer and sage top"></div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <section class="category-stack" aria-label="Shop categories">
+      <a class="category-card women-card" id="women" href="#featured">
+        <span class="category-copy"><strong>Women</strong><span>Explore <b aria-hidden="true">→</b></span></span>
+        <span class="category-image women-image" role="img" aria-label="Women's modern neutral fashion"></span>
+      </a>
+      <a class="category-card men-card" id="men" href="#featured">
+        <span class="category-copy"><strong>Men</strong><span>Explore <b aria-hidden="true">→</b></span></span>
+        <span class="category-image men-image" role="img" aria-label="Men's minimalist black outfit"></span>
+      </a>
+      <a class="category-card accessories-card" id="accessories" href="#featured">
+        <span class="category-copy"><strong>Accessories</strong><span>Explore <b aria-hidden="true">→</b></span></span>
+        <span class="category-image accessories-image" role="img" aria-label="Black leather tote bag"></span>
+</body>
+</html>
