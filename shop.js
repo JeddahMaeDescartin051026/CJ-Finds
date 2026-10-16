@@ -52,7 +52,7 @@ const CATALOG = {
 };
 const PAGE = document.body.dataset.page;
 const products = CATALOG[PAGE] || [];
-const filters = { type: "all", max: Infinity, term: "" };
+const filters = { type: "all", price: "all", term: "" };
 let cart = [];
 let toastTimer;
 
@@ -104,7 +104,7 @@ function applyFilters() {
   $$(".product-card").forEach(card => {
     const p = card._product;
     const ok = (filters.type === "all" || p.type === filters.type) &&
-      p.price <= filters.max &&
+      (filters.price === "all" || p.price === filters.price) &&
       (!filters.term || `${p.name} ${p.note} ${p.type}`.toLowerCase().includes(filters.term));
     card.hidden = !ok;
     if (ok) shown++;
@@ -176,9 +176,9 @@ $$("[data-filter]").forEach(b => b.addEventListener("click", () => {
   filters.type = b.dataset.filter;
   applyFilters();
 }));
-$$("[data-max]").forEach(b => b.addEventListener("click", () => {
-  setActive("[data-max]", b);
-  filters.max = b.dataset.max === "all" ? Infinity : Number(b.dataset.max);
+$$("[data-price]").forEach(b => b.addEventListener("click", () => {
+  setActive("[data-price]", b);
+  filters.price = b.dataset.price === "all" ? "all" : Number(b.dataset.price);
   applyFilters();
 }));
 
