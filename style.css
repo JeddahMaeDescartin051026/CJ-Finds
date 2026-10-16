@@ -72,7 +72,12 @@ h1 { margin: 0; font-size: clamp(58px,8.5vw,116px); line-height: .91; letter-spa
 .category-card:hover .category-copy b { transform: translateX(5px); }
 .category-image { position: absolute; z-index: -2; inset: 0 0 0 42%; background-size: cover; background-position: center 37%; transition: transform .6s; }
 .category-card:hover .category-image { transform: scale(1.025); }
-.women-image { background-image: url("HOMEPAGE_IMAGES/WOMEN.png"); background-position: center 33%; }
+.women-image {
+  background-image: url("HOMEPAGE_IMAGES/WOMEN.png");
+  background-size: auto 300%;
+  background-position: center 31.25%;
+  background-repeat: no-repeat;
+}
 .men-image {
   background-image: url("HOMEPAGE_IMAGES/MEN.png");
   background-size: auto 188%;
