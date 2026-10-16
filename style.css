@@ -46,7 +46,7 @@ button { color: inherit; }
 main { width: 100%; }
 .hero { min-height: clamp(500px, 60vw, 740px); margin: 0 2.1%; border-radius: 5px; overflow: hidden; position: relative; isolation: isolate; display: flex; align-items: center; background: #e7c9c7; }
 .hero-image { position: absolute; z-index: -2; inset: 0 0 0 38%; background-size: cover; background-position: center 35%; }
-.image-fashion { background-image: url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=88"); }
+.image-fashion { background-image: url("HOMEPAGE_IMAGES/MAIN_IMAGE.png"); }
 .hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(231,201,199,.97) 0%, rgba(231,201,199,.89) 34%, rgba(231,201,199,.35) 54%, rgba(231,201,199,0) 72%); }
 .hero-glow { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(0deg, rgba(120,59,80,.06), transparent 45%); }
 .hero-copy { padding: clamp(28px,6.2vw,96px); max-width: 59%; }
