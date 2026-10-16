@@ -19,7 +19,6 @@
     <a class="brand" href="#" aria-label="CJ Finds home">
       <span class="brand-leaf" aria-hidden="true">✦</span>
       <span>CJ Finds</span>
-      <small>Curated for everyday living</small>
     </a>
 
     <nav class="desktop-nav" aria-label="Main navigation">
@@ -54,7 +53,7 @@
     <section class="hero" aria-label="New season collection">
       <div class="hero-copy">
         <p class="eyebrow">New Season</p>
-        <h1>Modern<br>Essentials</h1>
+        <h1>Pre-Loved.<br>Re-Loved.<br>Yours.</h1>
         <p class="hero-description">Timeless pieces for a more<br class="desktop-break"> confident you.</p>
         <a class="primary-button" href="#featured">Shop the Collection <span aria-hidden="true">→</span></a>
         <div class="hero-pagination" aria-label="Featured collection">
@@ -79,5 +78,85 @@
       <a class="category-card accessories-card" id="accessories" href="#featured">
         <span class="category-copy"><strong>Accessories</strong><span>Explore <b aria-hidden="true">→</b></span></span>
         <span class="category-image accessories-image" role="img" aria-label="Black leather tote bag"></span>
+      </a>
+    </section>
+    <!-- Shopping UI is added below the original landing-page composition. -->
+    <section class="shopping-section" id="featured">
+      <div class="section-heading">
+        <div><p class="eyebrow">Thoughtfully selected</p><h2>Featured finds</h2></div>
+        <a class="text-link" href="#product-detail">View product details <span>↗</span></a>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filter featured products">
+        <button class="filter-chip active" data-filter="all">All finds</button>
+        <button class="filter-chip" data-filter="fashion">Fashion</button>
+        <button class="filter-chip" data-filter="accessories">Accessories</button>
+      </div>
+      <div class="product-grid">
+        <article class="product-card" data-category="fashion">
+          <button class="favorite" aria-label="Add Classic Knit to favorites">♡</button>
+          <div class="product-photo product-knit" role="img" aria-label="Folded sage knitwear"></div>
+          <div class="product-info"><div><h3>Everyday Knit</h3><p>Soft-touch essential</p></div><strong>₱1,290</strong></div>
+          <button class="add-product" data-product="Everyday Knit" data-price="1290">Add to bag <span>+</span></button>
+        </article>
+        <article class="product-card" data-category="fashion">
+          <button class="favorite" aria-label="Add Tailored Blazer to favorites">♡</button>
+          <div class="product-photo product-blazer" role="img" aria-label="Cream tailored blazer"></div>
+          <div class="product-info"><div><h3>Tailored Blazer</h3><p>Modern relaxed fit</p></div><strong>₱2,490</strong></div>
+          <button class="add-product" data-product="Tailored Blazer" data-price="2490">Add to bag <span>+</span></button>
+        </article>
+        <article class="product-card" data-category="accessories">
+          <button class="favorite" aria-label="Add Everyday Tote to favorites">♡</button>
+          <div class="product-photo product-tote" role="img" aria-label="Black leather tote bag"></div>
+          <div class="product-info"><div><h3>Everyday Tote</h3><p>Room for everything</p></div><strong>₱1,890</strong></div>
+          <button class="add-product" data-product="Everyday Tote" data-price="1890">Add to bag <span>+</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="detail-cart-grid" id="product-detail">
+      <article class="product-detail panel">
+        <div class="detail-image product-blazer" role="img" aria-label="Cream tailored blazer detail"></div>
+        <div class="detail-copy">
+          <p class="eyebrow">Editor's pick</p><h2>The Tailored Blazer</h2>
+          <div class="detail-price">₱2,490 <span>Complimentary shipping over ₱2,000</span></div>
+          <p class="detail-description">An effortlessly polished layer, cut for everyday ease and made to pair with the pieces you already love.</p>
+          <div class="option-group"><span class="option-label">Color <b id="selected-color">Oat</b></span>
+            <div class="color-options">
+              <button class="color-option oat selected" data-color="Oat" aria-label="Oat color"></button>
+              <button class="color-option sage" data-color="Sage" aria-label="Sage color"></button>
+              <button class="color-option charcoal" data-color="Charcoal" aria-label="Charcoal color"></button>
+            </div>
+          </div>
+          <div class="option-group"><span class="option-label">Size <b id="selected-size">M</b></span>
+            <div class="size-options"><button>S</button><button class="selected">M</button><button>L</button><button>XL</button></div>
+          </div>
+          <button class="primary-button detail-add" data-product="Tailored Blazer" data-price="2490">Add to Cart <span>→</span></button>
+          <p class="detail-note">Easy returns · Secure checkout</p>
+        </div>
+      </article>
+
+      <aside class="cart-panel panel" id="cart-panel">
+        <div class="cart-heading"><div><p class="eyebrow">Your selection</p><h2>Shopping bag <span class="bag-heading-count">(0)</span></h2></div><span class="bag-icon">♧</span></div>
+        <div class="cart-items"><p class="empty-cart">Your bag is waiting for something lovely.</p></div>
+        <div class="cart-summary">
+          <div><span>Subtotal</span><strong class="subtotal">₱0</strong></div>
+          <div><span>Shipping</span><strong class="shipping">Calculated at checkout</strong></div>
+          <div><span>Estimated total</span><strong class="total">₱0</strong></div>
+        </div>
+        <button class="checkout-button" disabled>♧ &nbsp; Continue to checkout</button>
+        <p class="secure-note">A little something good, on its way to you.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#">CJ Finds</a>
+    <p>Everyday pieces, thoughtfully found.</p>
+    <div class="footer-links"><a href="#women">Shop</a><a href="#product-detail">Shipping &amp; returns</a><a href="mailto:hello@cjfinds.example">Contact</a><a href="#top">Privacy</a></div>
+    <small>© <span id="year"></span> CJ Finds. Curated with care.</small>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
 </body>
 </html>
