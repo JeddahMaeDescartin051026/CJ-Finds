@@ -235,22 +235,3 @@ h1 { margin: 0; font-size: clamp(58px,8.5vw,116px); line-height: .91; letter-spa
   .product-grid { grid-template-columns: 1fr; }
   .product-photo { height: 250px; }
 }
-/* Improve keyboard accessibility */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  outline: 2px solid var(--sage-dark);
-  outline-offset: 4px;
-}
-
-/* Respect visitors who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
