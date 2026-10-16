@@ -77,7 +77,7 @@ h1 { margin: 0; font-size: clamp(58px,8.5vw,116px); line-height: .91; letter-spa
 .accessories-image {
   background-image: url("HOMEPAGE_IMAGES/ACCESSORIES.jpg");
   background-size: auto 400%;
-  background-position: center 33.33%;
+  background-position: center 40%;
   background-repeat: no-repeat;
 }
 .men-card { background: #e8d4d0; }
