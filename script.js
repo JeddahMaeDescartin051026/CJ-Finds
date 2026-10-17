@@ -20,6 +20,44 @@ function toast(message) {
   toastTimer = setTimeout(() => node.classList.remove("show"), 2300);
 }
 
+
+/* Homepage "Featured finds" and "Editor's pick" are drawn from products.js */
+function renderHomepageProducts() {
+  const P = window.CJ_PRODUCTS;
+  if (!P) return;
+  const grid = $(".product-grid");
+  if (grid) {
+    grid.innerHTML = "";
+    P.featured().forEach(p => {
+      const card = document.createElement("article");
+      card.className = "product-card";
+      card.dataset.category = p.category === "accessories" ? "accessories" : "fashion";
+      card.innerHTML = `
+        <button class="favorite" type="button" aria-label="Add ${p.name} to favorites">♡</button>
+        <div class="product-photo" role="img" aria-label="${p.name}" style="background-image:url('${p.front}')"></div>
+        <div class="product-info"><div><h3>${p.name}</h3><p>${p.note}</p></div><strong>${money(p.price)}</strong></div>
+        <button class="add-product" type="button" data-product="${p.name}" data-price="${p.price}">Add to bag <span>+</span></button>`;
+      grid.appendChild(card);
+    });
+  }
+  const pick = P.editorsPick();
+  const detail = $(".product-detail");
+  if (detail && pick) {
+    detail.innerHTML = `
+      <div class="detail-image" role="img" aria-label="${pick.name}" style="background-image:url('${pick.front}')"></div>
+      <div class="detail-copy">
+        <p class="eyebrow">Editor's pick</p><h2>The ${pick.name}</h2>
+        <div class="detail-price">${money(pick.price)}</div>
+        <p class="detail-description">${pick.description}</p>
+        <button class="primary-button detail-add" type="button" data-product="${pick.name}" data-price="${pick.price}">Add to Cart <span>→</span></button>
+        <p class="detail-note">Grab it before it's too late!</p>
+      </div>`;
+  } else if (detail) {
+    detail.hidden = true;
+  }
+}
+renderHomepageProducts();
+
 // Responsive navigation and search panels.
 $(".menu-toggle").addEventListener("click", () => {
   const panel = $(".mobile-menu");
@@ -141,7 +179,6 @@ function renderCart() {
   }
   $(".subtotal").textContent = money(subtotal);
   $(".total").textContent = money(subtotal);
-  $(".total").textContent = money(subtotal + (subtotal > 0 && subtotal < 2000 ? 150 : 0));
   $(".checkout-button").disabled = count === 0;
   saveCart();
 }
