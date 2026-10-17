@@ -91,41 +91,11 @@
         <button class="filter-chip" type="button" data-filter="fashion">Fashion</button>
         <button class="filter-chip" type="button" data-filter="accessories">Accessories</button>
       </div>
-      <div class="product-grid">
-        <article class="product-card" data-category="fashion">
-          <button class="favorite" type="button" aria-label="Add Everyday Knit to favorites">♡</button>
-          <div class="product-photo product-knit" role="img" aria-label="Folded sage knitwear"></div>
-          <div class="product-info"><div><h3>Everyday Knit</h3><p>Soft-touch essential</p></div><strong>₱1,290</strong></div>
-          <button class="add-product" type="button" data-product="Everyday Knit" data-price="1290">Add to bag <span>+</span></button>
-        </article>
-        <article class="product-card" data-category="fashion">
-          <button class="favorite" type="button" aria-label="Add Tailored Blazer to favorites">♡</button>
-          <div class="product-photo product-blazer" role="img" aria-label="Cream tailored blazer"></div>
-          <div class="product-info"><div><h3>Tailored Blazer</h3><p>Modern relaxed fit</p></div><strong>₱2,490</strong></div>
-          <button class="add-product" type="button" data-product="Tailored Blazer" data-price="2490">Add to bag <span>+</span></button>
-        </article>
-        <article class="product-card" data-category="accessories">
-          <button class="favorite" type="button" aria-label="Add Everyday Tote to favorites">♡</button>
-          <div class="product-photo product-tote" role="img" aria-label="Black leather tote bag"></div>
-          <div class="product-info"><div><h3>Everyday Tote</h3><p>Room for everything</p></div><strong>₱1,890</strong></div>
-          <button class="add-product" type="button" data-product="Everyday Tote" data-price="1890">Add to bag <span>+</span></button>
-        </article>
-      </div>
+      <div class="product-grid"></div>
     </section>
 
     <section class="detail-cart-grid" id="product-detail">
-      <article class="product-detail panel">
-        <div class="detail-image product-blazer" role="img" aria-label="Cream tailored blazer detail"></div>
-        <div class="detail-copy">
-  <p class="eyebrow">Editor's pick</p><h2>The Tailored Blazer</h2>
-  <div class="detail-price">₱2,490 <span>Complimentary shipping over ₱2,000</span></div>
-  <p class="detail-description">An effortlessly polished layer, cut for everyday ease and made to pair with the pieces you already love.</p>
-  <button class="primary-button detail-add" type="button" data-product="Tailored Blazer" data-price="2490">Add to Cart <span>→</span></button>
-  <p class="detail-note">Grab it before it's too late!</p>
-</div>
-</div>
-          
-      </article>
+      <article class="product-detail panel"></article>
 
       <aside class="cart-panel panel" id="cart-panel">
         <div class="cart-heading"><div><p class="eyebrow">Your selection</p><h2>Shopping bag <span class="bag-heading-count">(0)</span></h2></div><span class="bag-icon">♧</span></div>
@@ -149,8 +119,10 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="bag-reset.js"></script>
+<script src="products.js"></script>
 <script src="script.js"></script>
 <script src="bag.js" defer></script>
 <script src="bag-sync.js" defer></script>
+<script src="product-links.js" defer></script>
 </body>
 </html>
