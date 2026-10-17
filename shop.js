@@ -210,3 +210,8 @@ $("#year").textContent = new Date().getFullYear();
 loadCart();
 renderProducts();
 renderCart();
+/* Empty the bag when bag-reset.js says the order is done */
+document.addEventListener("cjbag:cleared", () => {
+  cart = [];
+  renderCart();
+});
