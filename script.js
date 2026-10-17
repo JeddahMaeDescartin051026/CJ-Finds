@@ -141,7 +141,6 @@ function renderCart() {
   }
   $(".subtotal").textContent = money(subtotal);
   $(".total").textContent = money(subtotal);
-  $(".shipping").textContent = subtotal === 0 ? "Calculated at checkout" : (subtotal >= 2000 ? "Free" : "₱150");
   $(".total").textContent = money(subtotal + (subtotal > 0 && subtotal < 2000 ? 150 : 0));
   $(".checkout-button").disabled = count === 0;
   saveCart();
