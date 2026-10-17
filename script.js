@@ -3,6 +3,14 @@ const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const money = value => new Intl.NumberFormat("en-PH", { style: "currency", currency: "PHP", maximumFractionDigits: 0 }).format(value);
 let cart = [];
 let toastTimer;
+const CART_KEY = "cjfinds-cart"; // same key shop.js uses, so the bag is shared across pages
+function loadCart() {
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { cart = []; }
+  if (!Array.isArray(cart)) cart = [];
+}
+function saveCart() {
+  try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
+}
 
 function toast(message) {
   const node = $(".toast");
@@ -136,6 +144,7 @@ function renderCart() {
   $(".shipping").textContent = subtotal === 0 ? "Calculated at checkout" : (subtotal >= 2000 ? "Free" : "₱150");
   $(".total").textContent = money(subtotal + (subtotal > 0 && subtotal < 2000 ? 150 : 0));
   $(".checkout-button").disabled = count === 0;
+  saveCart();
 }
 function changeQuantity(name, amount) {
   const item = cart.find(product => product.name === name);
@@ -147,7 +156,8 @@ function changeQuantity(name, amount) {
 $(".cart-toggle").addEventListener("click", () => $("#cart-panel").scrollIntoView({ behavior: "smooth", block: "center" }));
 $(".checkout-button").addEventListener("click", () => {
   if (!cart.length) return;
-  toast("Checkout preview only — connect a payment provider to accept orders.");
+  window.location.href = "checkout.html";
+});
 });
 $$(".swatch").forEach(button => button.addEventListener("click", () => {
   const colors = {
@@ -164,4 +174,11 @@ $$(".swatch").forEach(button => button.addEventListener("click", () => {
   toast(`${button.getAttribute("aria-label")} palette selected.`);
 }));
 $("#year").textContent = new Date().getFullYear();
+loadCart();
 renderCart();
+
+/* Empty the bag when bag-reset.js says the order is done */
+document.addEventListener("cjbag:cleared", () => {
+  cart = [];
+  renderCart();
+});
