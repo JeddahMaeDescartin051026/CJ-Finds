@@ -203,7 +203,7 @@ $(".search-panel").addEventListener("submit", e => {
 });
 $(".cart-toggle").addEventListener("click", () => $("#cart-panel").scrollIntoView({ behavior: "smooth", block: "center" }));
 $(".checkout-button").addEventListener("click", () => {
-  if (cart.length) toast("Checkout preview only — Cash on Delivery and QR will be connected here.");
+  if (cart.length) window.location.href = "checkout.html";
 });
 $("#year").textContent = new Date().getFullYear();
 
