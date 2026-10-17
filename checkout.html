@@ -101,7 +101,6 @@
           <div id="summary-items"></div>
           <div class="sum-totals">
             <div><span>Subtotal</span><strong id="sum-subtotal">₱0</strong></div>
-            <div><span>Shipping</span><strong id="sum-shipping">₱0</strong></div>
             <div><span>Total</span><strong id="sum-total">₱0</strong></div>
           </div>
         </aside>
@@ -145,10 +144,8 @@
       try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { cart = []; }
       if (!Array.isArray(cart)) cart = [];
 
-      // Same shipping rule as shop.js. If you change it there, change it here too.
       var subtotal = cart.reduce(function (s, i) { return s + i.price * i.quantity; }, 0);
-      var shipping = subtotal > 0 && subtotal < 2000 ? 150 : 0;
-      var total = subtotal + shipping;
+      var total = subtotal;
 
       function renderSummary() {
         summaryItems.innerHTML = "";
@@ -176,7 +173,6 @@
           });
         }
         document.getElementById("sum-subtotal").textContent = money(subtotal);
-        document.getElementById("sum-shipping").textContent = subtotal === 0 ? "₱0" : (shipping ? money(shipping) : "Free");
         document.getElementById("sum-total").textContent = money(total);
       }
 
@@ -214,7 +210,6 @@
         payload.order_items = cart.map(function (i) {
           return i.quantity + " × " + i.name + " (" + money(i.price) + " each) = " + money(i.price * i.quantity);
         }).join("\n");
-        payload.shipping = shipping ? money(shipping) : "Free";
         payload.order_total = money(total);
 
         submitBtn.disabled = true;
