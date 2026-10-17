@@ -157,7 +157,7 @@ $(".checkout-button").addEventListener("click", () => {
   if (!cart.length) return;
   window.location.href = "checkout.html";
 });
-});
+
 $$(".swatch").forEach(button => button.addEventListener("click", () => {
   const colors = {
     blush: ["#f8f1e9", "#c68183", "#783b50"],
