@@ -13,45 +13,9 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const money = v => new Intl.NumberFormat("en-PH", { style: "currency", currency: "PHP", maximumFractionDigits: 0 }).format(v);
 const CART_KEY = "cjfinds-cart";
 
-/* Sample catalogue — swap names, prices and image URLs for your real stock.
-   type: casual | formal | sports   (prices follow the 199 / 299 / 399 / 499 filters) */
-const IMG = {
-  knit: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=85",
-  blazer: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85",
-  tote: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
-  women: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
-  men: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=85",
-  bag: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
-  fashion: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
-};
-const CATALOG = {
-  women: [
-    { name: "Everyday Knit", note: "Soft-touch essential", price: 299, type: "casual", img: IMG.knit },
-    { name: "Tailored Blazer", note: "Modern relaxed fit", price: 499, type: "formal", img: IMG.blazer },
-    { name: "Sage Linen Top", note: "Breezy and light", price: 199, type: "casual", img: IMG.fashion },
-    { name: "Pleated Midi Skirt", note: "Office to dinner", price: 399, type: "formal", img: IMG.women },
-    { name: "Active Crop Set", note: "Stretchy, gym-ready", price: 299, type: "sports", img: IMG.knit },
-    { name: "Wrap Dress", note: "Pre-loved favorite", price: 499, type: "formal", img: IMG.fashion }
-  ],
-  men: [
-    { name: "Classic Oxford Shirt", note: "Crisp and clean", price: 299, type: "formal", img: IMG.men },
-    { name: "Black Minimal Tee", note: "Everyday staple", price: 199, type: "casual", img: IMG.men },
-    { name: "Slim Chino Pants", note: "Easy smart-casual", price: 399, type: "casual", img: IMG.blazer },
-    { name: "Wool-Blend Blazer", note: "Sharp, lightly worn", price: 499, type: "formal", img: IMG.blazer },
-    { name: "Performance Jersey", note: "Quick-dry fabric", price: 199, type: "sports", img: IMG.men },
-    { name: "Track Shorts", note: "Light and flexible", price: 299, type: "sports", img: IMG.knit }
-  ],
-  accessories: [
-    { name: "Everyday Tote", note: "Room for everything", price: 499, type: "casual", img: IMG.tote },
-    { name: "Leather Crossbody", note: "Compact and chic", price: 399, type: "formal", img: IMG.bag },
-    { name: "Canvas Gym Bag", note: "Tough and roomy", price: 299, type: "sports", img: IMG.bag },
-    { name: "Silk Scarf", note: "Soft blush print", price: 199, type: "casual", img: IMG.fashion },
-    { name: "Classic Belt", note: "Polished finish", price: 199, type: "formal", img: IMG.tote },
-    { name: "Sport Cap", note: "Adjustable fit", price: 199, type: "sports", img: IMG.men }
-  ]
-};
+/* Products come from products.js (the only file you edit to change products). */
 const PAGE = document.body.dataset.page;
-const products = CATALOG[PAGE] || [];
+const products = window.CJ_PRODUCTS ? window.CJ_PRODUCTS.inCategory(PAGE).map(p => ({ ...p, img: p.front })) : [];
 const filters = { type: "all", price: "all", term: "" };
 let cart = [];
 let toastTimer;
