@@ -128,7 +128,6 @@ function changeQuantity(item, amount) {
 function renderCart() {
   const count = cart.reduce((s, i) => s + i.quantity, 0);
   const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-  const shipping = subtotal > 0 && subtotal < 2000 ? 150 : 0;
   $(".cart-count").textContent = count;
   $(".bag-heading-count").textContent = `(${count})`;
   const box = $(".cart-items");
@@ -161,8 +160,7 @@ function renderCart() {
     });
   }
   $(".subtotal").textContent = money(subtotal);
-  $(".shipping").textContent = subtotal === 0 ? "Calculated at checkout" : (shipping ? money(shipping) : "Free");
-  $(".total").textContent = money(subtotal + shipping);
+  $(".total").textContent = money(subtotal);
   $(".checkout-button").disabled = count === 0;
   saveCart();
 }
