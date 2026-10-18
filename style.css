@@ -250,3 +250,4 @@ h1 { margin: 0; font-size: clamp(58px,8.5vw,116px); line-height: .91; letter-spa
   .product-grid { grid-template-columns: 1fr; }
   .product-photo { height: 250px; }
 }
+.search-toggle, .search-panel { display: none !important; }
